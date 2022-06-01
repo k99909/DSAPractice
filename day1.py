@@ -3,7 +3,16 @@
 #There is guaranteed to be one such pair whose product is the target.
 
 def pair_product(numbers, target_product):
-    print(numbers, target_product)
+    d = {}
+    for number in numbers:
+       d[number] = target_product / number
+    for key in d:
+        i = numbers.index(key)
+        if d[key] in numbers and key != d[key]:
+            j = numbers.index(d[key])
+            print(i, j)
+            return (i, j)
+           
 
 #test_00:
 pair_product([3, 2, 5, 4, 1], 8) # -> (1, 3)
