@@ -2,6 +2,9 @@
 #Be sure to return the indices, not the elements themselves.
 #There is guaranteed to be one such pair whose product is the target.
 
+def pair_product(numbers, target_product):
+    print(numbers, target_product)
+
 #test_00:
 pair_product([3, 2, 5, 4, 1], 8) # -> (1, 3)
 #test_01:
