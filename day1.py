@@ -3,26 +3,25 @@
 #There is guaranteed to be one such pair whose product is the target.
 
 def pair_product(numbers, target_product):
-    d = {}
-    for number in numbers:
-       d[number] = target_product / number
-    for key in d:
-        i = numbers.index(key)
-        if d[key] in numbers and key != d[key]:
-            j = numbers.index(d[key])
-            print(i, j)
-            return (i, j)
+    previous_nums = {}
+    for index, number in enumerate(numbers):
+       complement = target_product / number
+
+       if complement in previous_nums:
+           return (index, previous_nums[complement])
+
+       previous_nums[number] = index
            
 
 #test_00:
-pair_product([3, 2, 5, 4, 1], 8) # -> (1, 3)
+print(pair_product([3, 2, 5, 4, 1], 8)) # -> (1, 3)
 #test_01:
-pair_product([3, 2, 5, 4, 1], 10) # -> (1, 2)
+print(pair_product([3, 2, 5, 4, 1], 10)) # -> (1, 2)
 #test_02:
-pair_product([4, 7, 9, 2, 5, 1], 5) # -> (4, 5)
+print(pair_product([4, 7, 9, 2, 5, 1], 5)) # -> (4, 5)
 #test_03:
-pair_product([4, 7, 9, 2, 5, 1], 35) # -> (1, 4)
+print(pair_product([4, 7, 9, 2, 5, 1], 35)) # -> (1, 4)
 #test_04:
-pair_product([3, 2, 5, 4, 1], 10) # -> (1, 2)
+print(pair_product([3, 2, 5, 4, 1], 10)) # -> (1, 2)
 #test_05:
-pair_product([4, 6, 8, 2], 16) # -> (2, 3)
+print(pair_product([4, 6, 8, 2], 16)) # -> (2, 3)
