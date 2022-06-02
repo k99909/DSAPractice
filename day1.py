@@ -32,15 +32,29 @@
 
 # You may assume that each input list does not contain duplicate elements.
 
+def intersection(a, b):
+    common_nums = []
+    a_dict = {}
+
+    for num in a:
+        a_dict[num] = True
+
+    for num in b:
+
+        if num in a_dict:
+            common_nums.append(num)
+
+    return common_nums
+
 # test_00:
-intersection([4,2,1,6], [3,6,9,2,10]) # -> [2,6]
+print(intersection([4,2,1,6], [3,6,9,2,10])) # -> [2,6]
 # test_01:
-intersection([2,4,6], [4,2]) # -> [2,4]
+print(intersection([2,4,6], [4,2])) # -> [2,4]
 # test_02:
-intersection([4,2,1], [1,2,4,6]) # -> [1,2,4]
+print(intersection([4,2,1], [1,2,4,6])) # -> [1,2,4]
 # test_03:
-intersection([0,1,2], [10,11]) # -> []
+print(intersection([0,1,2], [10,11])) # -> []
 # test_04:
 a = [ i for i in range(0, 50000) ]
 b = [ i for i in range(0, 50000) ]
-intersection(a, b) # -> [0,1,2,3,..., 49999]
+print(intersection(a, b)) # -> [0,1,2,3,..., 49999]
