@@ -4,9 +4,17 @@
 // You may assume that each input array does not contain duplicate elements.
 
 const intersection = (a, b) => {
-    for (num of b) {
-        console.log(num)
+    let aHash = {};
+    let output = [];
+    for (num of a) {
+        aHash[num] = true;
     }
+    for (num of b) {
+        if (aHash[num]) {
+            output.push(num);
+        }
+    }
+    return output;
 }
 
 // test_00:
